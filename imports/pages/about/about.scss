@@ -1,0 +1,13 @@
+@import '{}/client/overrides.scss';
+
+#About{
+  #ImgColumn{
+    max-width: 300px;
+    #ImgWrapper{
+      .p-2{
+        border: ($spacer*.25) $dark solid;
+        border-radius: 50%;
+      }
+    }
+  }
+}

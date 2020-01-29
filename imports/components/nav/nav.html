@@ -1,0 +1,16 @@
+<template name="nav">
+  <div id="Nav" class="d-flex flex-column align-items-center w-10 pt-2 ml-3 h-100 position-absolute">
+    <h2 class="rounded-circle bg-light text-dark text-bold shadow position-relative p-5 d-flex justify-content-center align-items-center mb-4">
+      <div id="NavLogo" class="position-absolute">
+        SC
+      </div>
+    </h2>
+    <div class="navLinks d-flex flex-column w-100 align-items-center">
+      {{#each navLinks}}
+        <div class="navLink border-0 pointer w-80 btn shadow my-2 {{#if is path (get 'page.path')}}btn-dark{{else}}btn-light{{/if}}">
+          {{text}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

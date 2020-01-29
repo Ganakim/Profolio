@@ -1,0 +1,37 @@
+@import './imports.scss';
+@import './overrides.scss';
+//Pages
+
+//Components
+
+
+#Main{
+  height: 100vh;
+  font-family: Verdana;
+  #PageWrapper{
+    z-index: 1;
+    padding-left: calc(1.5rem + 10%);
+  }
+  #Recursive{
+    // z-index: 5;
+    z-index: -3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    // opacity: .6;
+  }
+  #Modal{
+    z-index: 100;
+  }
+  #PathToken{
+    padding: 2.1rem;
+  }
+  .pointer{
+    cursor: pointer;
+  }
+  .text-shadow{
+    text-shadow: $box-shadow;
+  }
+}

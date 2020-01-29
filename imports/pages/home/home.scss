@@ -1,0 +1,40 @@
+#Home{
+  #Background{
+    .shade{
+      background-color: rgba(0,0,0,.6);
+      position: fixed;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      background-size: cover;
+    }
+    video{
+      position: fixed;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      left: 0;
+      top: 0;
+      z-index: -2;
+      background-size: cover;
+    }
+  }
+  .navLink>i{
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+  }
+  .navLink:hover{
+    @extend .shadow;
+  }
+  .navLink:hover+div{
+    opacity: .5!important;
+  }
+  h1{
+    font-size: 4em;
+  }
+}
