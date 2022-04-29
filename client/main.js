@@ -1,59 +1,32 @@
-import { Template } from 'meteor/templating'
-import { startTracker } from '/lib/recursive'
+import {Template} from 'meteor/templating'
+import {startTracker} from '/lib/recursive'
 
 import './main.html'
-import './imports.js'
 
-Session.set('modal', false)
+//lib
+import '/lib/routes'
+import '/lib/tools'
+//components
+import '/imports/components/nav/nav'
+import '/imports/components/header/header'
+//pages
+import '/imports/pages/home/home'
+import '/imports/pages/about/about'
+import '/imports/pages/donate/donate'
+import '/imports/pages/contact/contact'
+import '/imports/pages/portfolio/portfolio'
 
-var modalCallback
-var recursiveStarted = false
-
-Template.body.onCreated(()=>{
-  
-})
-
-Template.body.helpers({
-  navLink(){
-    NavLinks.map((a,i)=>{
-      if(a.path == Session.get('page')){
-        return a
-      }
-    }).filter(Boolean)[0]
-  },
+Template.body.events({
+  'click .navLink'(){
+    FlowRouter.go(`/${this.path}`)
+    Session.set('hasNav', this.nav)
+  }
 })
 
 Template.body.events({
-  'keydown .modalInput'(e){
-    if(e.keyCode == 13){
-      var inputs = {}
-      $('.modalInput').map((index, input)=>{
-        inputs[input.id.replace('Modal','').toLowerCase()] = $(`#${input.id}`).val()
-      })
-      modalCallback(inputs)
-      Session.set('modal', false)
-    }
-  },
-  'click #ModalConfirm'(e){
-    var inputs = {}
-    $('.modalInput').map((index, input)=>{
-      inputs[input.id.replace('Modal','').toLowerCase()] = $(`#${input.id}`).val()
-    })
-    modalCallback(inputs)
-    Session.set('modal', false)
-  },
-  'click #ModalDeny'(){
-    Session.set('modal', false)    
-  },
   'mouseenter #PageWrapper'(){
-    if(!recursiveStarted){
+    if(Session.get('hasNav')){
       startTracker()
-      recursiveStarted = true
     }
-  },
+  }
 })
-
-Modal = (modal, callback)=>{
-  modalCallback = callback
-  Session.set('modal', modal)
-}

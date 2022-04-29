@@ -1,9 +1,5 @@
 import './contact.html'
 
-Template.contact.onCreated(()=>{
-  Session.set('hasNav', true)
-})
-
 Template.contact.helpers({
   contacts(){
     return {
@@ -16,7 +12,7 @@ Template.contact.helpers({
         {icon:'fab fa-linkedin-in', name:"linkedin", path:'https://www.linkedin.com/in/spencer-cornwall'},
         {icon:'fab fa-github-alt', name:"github", path:'https://github.com/Ganakim'},
         {icon:'fab fa-facebook-f', name:"facebook", path:'https://www.facebook.com/spencer.cornwall'},
-        // {icon:'fab fa-discord', path:''},
+        {icon:'fab fa-discord', path:'https://discordapp.com/users/102566151778762752'},
         // {icon:'fab fa-instagram', name:"instagram", path:'https://www.instagram.com/spencer_cornwall'},
         // {icon:'fab fa-twitter', name:"twitter", path:'https://twitter.com/_Ganakim_'},
       ]

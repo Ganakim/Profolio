@@ -1,10 +1,10 @@
-@import '{}/client/overrides.scss';
-
 #Nav{
   box-shadow: $box-shadow inset;
-  background-color: rgba(60, 60, 60, .4);
+  background-color: rgba(0, 0, 0, .05);
   z-index: 4;
+  user-select: none;
   #NavLogo{
     cursor: default;
+    font-family: helvetica;
   }
 }

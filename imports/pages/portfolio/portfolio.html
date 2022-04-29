@@ -1,15 +1,11 @@
 <template name="portfolio">
-    <div id="Portfolio" class="w-100 h-100 d-flex flex-column align-items-center">
-      <h1 class="text-dark text-shadow">Portfolio</h1>
-      <div id="PathToken" class="border-0 rounded-circle position-relative bg-light shadow m-2 mb-4 d-flex justify-content-center align-items-center">
-        <i class="{{get 'page.icon'}} position-absolute fa-2x d-flex justify-content-center align-items-center"></i>
-      </div>
-      <div class="w-75 border border-dark shadow-sm mb-5 shadow rounded"></div>
+    <div id="Portfolio" class="w-100 d-flex flex-column align-items-center">
+      {{>header}}
       <div class="card shadow w-60">
         <div class="card-body">
           <div class="d-flex align-items-center mb-2">
             <div class="border shadow border-dark bg-white rounded-circle position-relative p-3 m-2 d-flex justify-content-center align-items-center">
-              <i class="fas fa-tasks-alt position-absolute d-flex justify-content-center align-items-center fa-lg"></i>
+              <i class="fas fa-tasks-alt position-absolute fa-lg"></i>
             </div>
             <div>Skills:</div>
           </div>
@@ -17,7 +13,7 @@
             {{#each skills}}
               <div class="d-flex align-items-center pointer mb-3 mr-5">
                 <div class="border shadow border-dark bg-white rounded-circle position-relative p-3 m-2 d-flex justify-content-center align-items-center">
-                  <i class="{{icon}} position-absolute d-flex justify-content-center align-items-center fa-lg"></i>
+                  <i class="{{icon}} position-absolute fa-lg"></i>
                 </div>
                 <div class="text-shadow">{{text}}</div>
               </div>
@@ -26,7 +22,7 @@
           {{#if certs.length}}
             <div class="d-flex align-items-center mb-2">
               <div class="border shadow border-dark bg-white rounded-circle position-relative p-3 m-2 d-flex justify-content-center align-items-center">
-                <i class="fal fa-file-certificate position-absolute d-flex justify-content-center align-items-center fa-lg"></i>
+                <i class="fal fa-file-certificate position-absolute fa-lg"></i>
               </div>
               <div>Certifications:</div>
             </div>

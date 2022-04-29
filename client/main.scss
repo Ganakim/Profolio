@@ -1,9 +1,78 @@
-@import './imports.scss';
-@import './overrides.scss';
-//Pages
+@import '{}/node_modules/bootstrap/scss/bootstrap.scss';
 
-//Components
+// Variables
+$nav-height: 8vh;
+$custom-directions: (
+  t: top,
+  l: left,
+  r: right,
+  b: bottom,
+);
+$custom-types: (
+  m: margin,
+  p: padding,
+  w: width,
+  h: height,
+);
+$enable-responsive-font-sizes: true;
+$custom-sizes: (
+  0: 0,
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  30: 30%,
+  35: 35%,
+  40: 40%,
+  45: 45%,
+  50: 50%,
+  55: 55%,
+  60: 60%,
+  65: 65%,
+  70: 70%,
+  75: 75%,
+  80: 80%,
+  85: 85%,
+  90: 90%,
+  95: 95%,
+  100: 100%,
+  auto: auto
+);
+$custom-colors: (
+  "modal": rgba(100, 100, 100, .2)
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+@each $abbrev, $prop in $custom-directions {
+  @each $size, $length in $custom-sizes {
+    .#{$abbrev}-#{$size} { #{$prop}: $length !important; }
+  }
+}
+@each $abbrev, $prop in $custom-types {
+  @each $size, $length in $custom-sizes {
+    .#{$abbrev}-#{$size} { #{$prop}: $length !important; }
+  }
+}
+@each $abbrev, $prop in $custom-directions {
+  @each $size, $length in $custom-sizes {
+    .m#{$abbrev}-#{$size} { margin-#{$prop}: $length !important; }
+  }
+}
+@each $abbrev, $prop in $custom-directions {
+  @each $size, $length in $custom-sizes {
+    .p#{$abbrev}#{$abbrev}-#{$size} { padding-#{$prop}: $length !important; }
+  }
+}
 
+//components
+@import '{}/imports/components/nav/nav.scss';
+@import '{}/imports/components/header/header.scss';
+//pages
+@import '{}/imports/pages/home/home.scss';
+@import '{}/imports/pages/about/about.scss';
+@import '{}/imports/pages/donate/donate.scss';
+@import '{}/imports/pages/contact/contact.scss';
+@import '{}/imports/pages/portfolio/portfolio.scss';
 
 #Main{
   height: 100vh;
@@ -11,6 +80,7 @@
   #PageWrapper{
     z-index: 1;
     padding-left: calc(1.5rem + 10%);
+    overflow-y: auto;
   }
   #Recursive{
     // z-index: 5;
@@ -33,5 +103,8 @@
   }
   .text-shadow{
     text-shadow: $box-shadow;
+  }
+  i{
+    margin-top: 3px;
   }
 }

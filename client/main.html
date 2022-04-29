@@ -14,42 +14,12 @@
   <div id="Main" class="w-100 d-flex">
     {{#if get "hasNav"}}
       {{>nav page=page.path}}
-      <div id="PageWrapper" class="w-100 h-100">
+      <div id="PageWrapper" class="w-100 h-100 pb-5">
         {{>Template.dynamic template=(get "page.path")}}
       </div>
-      {{else}}
-        {{>Template.dynamic template=(get "page.path")}}
-      {{/if}}
-      <canvas id="Recursive"></canvas>
-    {{#if modal}}
-    {{#with get modal}}
-      <div id="Modal" class="w-100 h-100 transparent-2 d-flex justify-content-center align-items-start position-absolute pt-5">
-        <div class="card mt-5 w-25">
-          <div class="card-body w-100">
-            <div class="p-4 w-100 d-flex justify-content-center">
-              {{message}}
-            </div>
-            <div class="d-flex flex-column justify-content-around">
-              <form>
-                {{#each inputs}}
-                  <div class="form-group d-flex flex-column">
-                    <label>{{text}}</label>
-                    <input class="form-control modalInput" type="{{type}}" id="Modal{{id}}">
-                  </div>
-                {{/each}}
-              </form>
-              <div class="d-flex justify-content-center">
-                {{#each btns}}
-                  <div id="Modal{{capitalize type}}" class="btn btn-{{#if class}}{{class}}{{else}}secondary{{/if}} f-1 m-3">
-                    {{text}}
-                  </div>
-                {{/each}}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    {{/with}}
-  {{/if}}
+    {{else}}
+      {{>Template.dynamic template=(get "page.path")}}
+    {{/if}}
+    <canvas id="Recursive"></canvas>
   </div>
 </body>
